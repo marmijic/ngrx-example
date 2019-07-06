@@ -2,8 +2,7 @@ import {
   ClubModuleState,
   initialClubModuleState,
   ClubsState,
-  SortState,
-  SortOrder
+  SortState
 } from './clubs.state';
 import {
   ClubAction,

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { ClubsState, SortOrder, SortState } from './clubs.state';
+import { ClubsState, SortState } from './clubs.state';
 
 export const enum ClubsActionType {
   REQUEST_CLUBS = '[CLUBS MODULE] REQUEST_CLUBS',
