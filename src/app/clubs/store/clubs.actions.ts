@@ -7,12 +7,6 @@ export const enum ClubsActionType {
   SORT_CLUBS = '[CLUBS MODULE] SORT_CLUBS'
 }
 
-export const ClubsActionTypes: ClubsActionType[] = [
-  ClubsActionType.REQUEST_CLUBS,
-  ClubsActionType.RESPOND_CLUBS,
-  ClubsActionType.SORT_CLUBS
-];
-
 export class RequestClubsAction implements Action {
   readonly type: ClubsActionType = ClubsActionType.REQUEST_CLUBS;
 }
