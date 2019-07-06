@@ -20,6 +20,4 @@ export function debugMetaReducer(
   };
 }
 
-export const metaReducers: MetaReducer<object>[] = !environment.production
-  ? [debugMetaReducer, storeFreeze]
-  : [];
+export const metaReducers: MetaReducer<any>[] = [debugMetaReducer, storeFreeze];
