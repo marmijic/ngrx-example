@@ -20,7 +20,7 @@ export class RespondClubsAction implements Action {
 export class SortClubsAction implements Action {
   readonly type: ClubsActionType = ClubsActionType.SORT_CLUBS;
 
-  constructor(public payload: { order: SortState }) {}
+  constructor(public payload: { sort: SortState }) {}
 }
 
 export type ClubAction =

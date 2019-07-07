@@ -22,12 +22,12 @@ export interface SortState {
 
 export interface ClubModuleState {
   clubs: ClubsState[];
-  sorts: SortState;
+  sort: SortState;
 }
 
 export const initialClubModuleState = {
   clubs: null,
-  sorts: {
+  sort: {
     field: 'name',
     order: SortOrder.ASCENDING
   }

@@ -2,13 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ClubsComponent } from './clubs.component';
 import { TableComponent } from './components/table/table.component';
-import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { clubReducer } from './store/clubs.reducer';
 import { clubStateName } from './store/clubs.state';
 import { EffectsModule } from '@ngrx/effects';
 import { ClubsEffects } from './store/clubs.effects';
+import { Routes, RouterModule } from '@angular/router';
 
 export const mainRoutes: Routes = [
   {
@@ -20,15 +19,14 @@ export const mainRoutes: Routes = [
 @NgModule({
   imports: [
     BrowserModule,
-    HttpClientModule,
+    StoreModule.forFeature(clubStateName, clubReducer),
+    EffectsModule.forFeature([ClubsEffects]),
     RouterModule.forChild([
       {
         path: '',
         component: ClubsComponent
       }
-    ]),
-    StoreModule.forFeature(clubStateName, clubReducer),
-    EffectsModule.forFeature([ClubsEffects])
+    ])
   ],
   providers: [],
   declarations: [ClubsComponent, TableComponent],

@@ -7,7 +7,13 @@ import { ClubsState, SortState } from './store/clubs.state';
 
 @Component({
   selector: 'app-clubs',
-  templateUrl: './clubs.component.html'
+  template: `
+    <app-table
+      [clubs]="clubs$ | async"
+      [sortState]="sortState$ | async"
+      (doSort)="sort($event)"
+    ></app-table>
+  `
 })
 export class ClubsComponent implements OnInit {
   clubs$: Observable<ClubsState[]>;
@@ -23,6 +29,6 @@ export class ClubsComponent implements OnInit {
   }
 
   sort(event): void {
-    this.store.dispatch(new SortClubsAction({ order: event }));
+    this.store.dispatch(new SortClubsAction({ sort: event }));
   }
 }

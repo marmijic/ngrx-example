@@ -15,5 +15,5 @@ export const selectClub: Selector<object, ClubsState[]> = createSelector(
 
 export const selectSortState: Selector<object, SortState> = createSelector(
   selectClubModule,
-  (state: ClubModuleState) => state.sorts
+  (state: ClubModuleState) => state.sort
 );

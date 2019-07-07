@@ -16,8 +16,6 @@ export function clubReducer(
   action: ClubAction
 ): ClubModuleState {
   switch (action.type) {
-    case ClubsActionType.REQUEST_CLUBS:
-      return oldState;
     case ClubsActionType.RESPOND_CLUBS: {
       const clubs: ClubsState[] = (action as RespondClubsAction).payload.clubs;
 
@@ -29,18 +27,18 @@ export function clubReducer(
       return newState;
     }
     case ClubsActionType.SORT_CLUBS: {
-      const sorts: SortState = (action as SortClubsAction).payload.order;
+      const sort: SortState = (action as SortClubsAction).payload.sort;
       const clubs: ClubsState[] = oldState.clubs.slice().sort((a, b) => {
         const clubA =
-          sorts.field !== 'capacity'
-            ? a[sorts.field].toUpperCase()
-            : a[sorts.field];
+          sort.field !== 'capacity'
+            ? a[sort.field].toUpperCase()
+            : a[sort.field];
         const clubB =
-          sorts.field !== 'capacity'
-            ? b[sorts.field].toUpperCase()
-            : b[sorts.field];
+          sort.field !== 'capacity'
+            ? b[sort.field].toUpperCase()
+            : b[sort.field];
 
-        if (sorts.order === 'ASC') {
+        if (sort.order === 'ASC') {
           return clubA > clubB ? 1 : clubA < clubB ? -1 : 0;
         } else {
           return clubA < clubB ? 1 : clubA > clubB ? -1 : 0;
@@ -49,7 +47,7 @@ export function clubReducer(
 
       const newState = {
         ...oldState,
-        sorts,
+        sort,
         clubs
       };
 

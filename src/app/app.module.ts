@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { routerReducer } from '@ngrx/router-store';
@@ -13,6 +14,7 @@ import { ClubsModule, mainRoutes } from './clubs/clubs.module';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ClubsModule,
     StoreModule.forRoot(
       {
